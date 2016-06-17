@@ -1,5 +1,5 @@
 {
-  "name": "App Review Word Cloud",
+  "name": "app-review-word-cloud",
   "version": "1.0.0",
   "description": "Interactive word cloud generator for app reviews",
   "main": "index.js",

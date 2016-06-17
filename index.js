@@ -68,15 +68,9 @@ router.get('/android/:start_date/:end_date/:rating', function(req, res) {
   });
 });
 
+app.set('port', (process.env.PORT || 5000));
 app.use('/api', router);
-
 app.use(express.static('public'));
-
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-
-
+app.listen(app.get('port'), function() {
+	  console.log('Node app is running on port', app.get('port'));
 });

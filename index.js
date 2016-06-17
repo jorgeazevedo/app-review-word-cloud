@@ -4,7 +4,7 @@ var app = express();
 var router = express.Router();
 var nconf = require('nconf');
 
-nconf.file({ file: 'config.json' });
+nconf.env().file({ file: 'config.json' });
 var apikey = nconf.get("appannie_apikey");
 var androidProductID = nconf.get("appannie_androidProductID");
 var iosProductID = nconf.get("appannie_iosProductID");

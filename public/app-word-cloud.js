@@ -127,7 +127,8 @@ $("#slider").bind("valuesChanged", function(e, data){
 
     console.log("Values just changed. min: " + startDate + " max: " + endDate);
     $('#div1').html("Fetching data")
-    $('#records_table').html("")
+    $('#records_table > thead').html("");
+    $('#records_table > tbody').html("");
     
     fetchData(startDate, endDate, function(err, data){
         if(err) console.log(err)
@@ -168,7 +169,8 @@ function fetchData(startDate, endDate, callback) {
             }).join("");
 
             $('#div1').html("Got " + dummy.reviews.length + " results")
-            $('#records_table').append("<tr>" + tableHeader + " </tr>" + rows);
+            $('#records_table > thead').append("<tr>" + tableHeader + " </tr>");
+            $('#records_table > tbody').append(rows);
             if(typeof callback === "function") callback(null, dummy);
         },
         error: function(httpReq, status, exception) {
